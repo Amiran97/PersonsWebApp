@@ -41,7 +41,6 @@ export class RegisterComponent {
         if(error.status == 400) {
           this.registerForm.setErrors({'register': `User name ${this.username?.value} is already taken`})
         }
-        console.error(error);
       }
     );
   }

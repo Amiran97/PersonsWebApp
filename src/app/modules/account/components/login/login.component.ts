@@ -33,7 +33,6 @@ export class LoginComponent {
         if(error.status == 401) {
           this.loginForm.setErrors({'auth': 'Login or password not correct!'})
         }
-        console.error(error);
       }
     );
   }

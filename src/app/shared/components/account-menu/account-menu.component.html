@@ -2,13 +2,10 @@
     <li class="nav-item" routerLinkActive="active">
         <a class="nav-link" routerLink="account/login">Sing in</a>
     </li>
-    <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" routerLink="account/register">Sing up</a>
-    </li>
 </ul>
 
 <ul *ngIf="accountFacade.isAuthenticated$() | async" class="navbar-nav">
-    <p class="nav-item">{{(accountFacade.account$ | async)?.username}}</p>
+    <p class="nav-item mb-0 py-2 fw-bold">{{(accountFacade.account$ | async)?.username}}</p>
     <li class="nav-item">
         <a class="nav-link cur-pointer" (click)="onLogoutClick()">Logout</a>
     </li>

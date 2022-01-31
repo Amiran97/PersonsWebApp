@@ -62,13 +62,15 @@ export class AddEditComponent implements OnInit {
 
   onSubmit() {
     if(this.personForm.valid) {
+      let formPerson = this.personForm.value as Person;
       if(this.isAddMode) {
-        this.personsFacade.create(this.personForm.value).subscribe(
+        this.personsFacade.create(formPerson).subscribe(
           persons => this.router.navigate(['/persons'])
           );
       }
       else {
-        this.personsFacade.update(this.id, this.personForm.value).subscribe(
+        formPerson.id = this.id;
+        this.personsFacade.update(this.id, formPerson).subscribe(
           persons => this.router.navigate(['/persons'])
           );
       }

@@ -4,6 +4,7 @@ import { ListComponent } from './components/list/list.component';
 import { AddEditComponent } from './components/add-edit/add-edit.component';
 import { PersonsRoutingModule } from './persons-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 
@@ -17,7 +18,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     PersonsRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NgxPaginationModule
   ]
 })
 export class PersonsModule { }
