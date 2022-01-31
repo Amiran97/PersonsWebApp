@@ -1,0 +1,18 @@
+footer {
+    position: fixed;
+    height: 50px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    margin-bottom: 0px;
+}
+
+body {
+    margin-bottom:50px;
+}
+
+footer div {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}

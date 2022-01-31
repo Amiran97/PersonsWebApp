@@ -1,1 +1,29 @@
-<p>login works!</p>
+<h1>Sign in</h1>
+
+<div class="row my-4">
+
+    <div class="col-md-6">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+            <div class="form-group">
+                <input placeholder="Username" formControlName="username" id="username" type="text" class="form-control">
+                <ng-container *ngIf="username?.touched">
+                    <span *ngIf="username?.errors?.['required']" class="text-danger">Username is required!</span>
+                    <span *ngIf="username?.errors?.['maxlength']" class="text-danger">Username length cant be more than 100 symbols!</span>
+                </ng-container>
+            </div>
+
+            <div class="form-group">
+                <input placeholder="Password" formControlName="password" id="password" type="password" class="form-control">
+                <ng-container *ngIf="password?.touched">
+                    <span *ngIf="password?.errors?.['required']" class="text-danger">Password is required!</span>
+                </ng-container>
+            </div>
+
+            <span *ngIf="loginForm?.errors?.['auth']" class="text-danger">{{loginForm?.errors?.['auth']}}</span>
+            
+            <button [disabled]="loginForm.invalid" type="submit" class="btn btn-primary mr-2">Sign in</button>
+        </form>
+    </div>
+
+</div>

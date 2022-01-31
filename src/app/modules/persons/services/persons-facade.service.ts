@@ -36,7 +36,11 @@ export class PersonsFacadeService {
           return this.personsApi.update(id, person).pipe(
               tap(() => this.personsStorage.update(id, person)));
       }
-    
+
+      private clear() {
+        this.personsStorage.set([]);  
+      }
+
       private load() {
         this.personsApi.getAll()
           .subscribe(data => this.personsStorage.set(data));

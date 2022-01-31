@@ -1,5 +1,5 @@
 <h1>Person list:</h1>
-<a class="btn btn-primary" [routerLink]="['/persons/add']">Add</a>
+<a *ngIf="accountFacade.isAuthenticated$() | async" class="btn btn-primary" [routerLink]="['/persons/add']">Add</a>
 <div *ngIf="personsFacade.persons$ | async else loading" class="card my-4">
     <table class="table"> 
         <thead>
@@ -20,8 +20,8 @@
                 <td>{{person.email}}</td>
                 <td>{{person.phoneNumber}}</td>
                 <td>{{person.modifyDate | date:'dd.mm.yyyy HH:MM'}}</td>
-                <td><a class="btn btn-primary" [routerLink]="['/persons/edit', person.id]">Edit</a></td>
-                <td><button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteConfirmModal" (click)="onDeleteClick(person.id)">Delete</button></td>
+                <td *ngIf="accountFacade.isAuthenticated$() | async"><a class="btn btn-primary" [routerLink]="['/persons/edit', person.id]">Edit</a></td>
+                <td *ngIf="accountFacade.isAuthenticated$() | async"><button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteConfirmModal" (click)="onDeleteClick(person.id)">Delete</button></td>
             </tr>
         </tbody>
     </table>

@@ -1,1 +1,44 @@
-<p>register works!</p>
+<h1>Sign up</h1>
+
+<div class="row my-4">
+
+    <div class="col-md-6">
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+            <div class="form-group">
+                <input placeholder="Username" formControlName="username" id="username" type="text" class="form-control">
+                <ng-container *ngIf="username?.touched">
+                    <span *ngIf="username?.errors?.['required']" class="text-danger">username is required!</span>
+                </ng-container>
+            </div>
+
+            <div class="form-group">
+                <input placeholder="Email" formControlName="email" id="email" type="email" class="form-control">
+                <ng-container *ngIf="email?.touched">
+                    <span *ngIf="email?.errors?.['required']" class="text-danger">Email is required!</span>
+                    <span *ngIf="email?.errors?.['email']" class="text-danger">Email is not valid!</span>
+                </ng-container>
+            </div>
+
+            <div class="form-group">
+                <input placeholder="Password" formControlName="password" id="password" type="password" class="form-control">
+                <ng-container *ngIf="password?.touched">
+                    <span *ngIf="password?.errors?.['required']" class="text-danger">Password is required!</span>
+                </ng-container>
+            </div>
+
+            <div class="form-group">
+                <input placeholder="Confirm password" formControlName="passwordConfirmation" id="passwordConfirmation" type="password" class="form-control">
+                <ng-container *ngIf="passwordConfirmation?.touched">
+                    <span *ngIf="passwordConfirmation?.errors?.['required']" class="text-danger">Password is required!</span>
+                    <span *ngIf="registerForm?.errors?.['sameValue']" class="text-danger">Passwords not match!</span>
+                </ng-container>
+            </div>
+
+            <span *ngIf="registerForm?.errors?.['register']" class="text-danger">{{registerForm?.errors?.['register']}}</span>
+
+            <button [disabled]="registerForm.invalid" type="submit" class="btn btn-primary mr-2">Sing up</button>
+        </form>
+    </div>
+
+</div>

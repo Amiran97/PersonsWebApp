@@ -21,7 +21,7 @@ export class AccountFacadeService {
   get account$() { return this.accountState.account$; }
 
   isAuthenticated$() : Observable<boolean> {
-    return this.account$.pipe(map(account => account ? true : false));
+    return this.account$.pipe(map(account => account.id ? true : false));
   }
 
   isAuthenticated() : boolean {
