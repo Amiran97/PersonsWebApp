@@ -1,4 +1,4 @@
-import { formatDate } from '@angular/common';
+import { formatDate, Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -19,6 +19,7 @@ export class AddEditComponent implements OnInit {
     private personsFacade: PersonsFacadeService,
     private route: ActivatedRoute,
     private router: Router,
+    private location: Location
   ) {
     this.personForm = new FormGroup({
       firstName: new FormControl(null, {
@@ -81,6 +82,10 @@ export class AddEditComponent implements OnInit {
     if(!event.code.match('Digit') || (this.phoneNumber?.value as string)?.length >= 10) {
       event.preventDefault();
     }
+  }
+
+  onBackClick() {
+    this.location.back();
   }
 
 }

@@ -16,10 +16,10 @@
             <tr *ngFor="let person of personCollection |  paginate: { itemsPerPage: 10, currentPage: page }">
                 <td>{{person.firstName | titlecase}}</td>
                 <td>{{person.lastName | titlecase}}</td>
-                <td>{{person.birthday | date:'dd.mm.yyyy'}}</td>
+                <td>{{person.birthday | date:'dd.MM.yyyy'}}</td>
                 <td>{{person.email}}</td>
                 <td>{{person.phoneNumber}}</td>
-                <td>{{person.modifyDate | date:'dd.mm.yyyy HH:MM'}}</td>
+                <td>{{person.modifyDate | date:'dd.MM.yyyy HH:mm'}}</td>
                 <td *ngIf="accountFacade.isAuthenticated$() | async"><a class="btn btn-primary" [routerLink]="['/persons/edit', person.id]">Edit</a></td>
                 <td *ngIf="accountFacade.isAuthenticated$() | async"><button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteConfirmModal" (click)="onDeleteClick(person.id)">Delete</button></td>
             </tr>

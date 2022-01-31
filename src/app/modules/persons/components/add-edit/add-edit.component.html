@@ -46,7 +46,7 @@
                     <span *ngIf="birthday?.errors?.['required']" class="text-danger">Birthday is required!</span>
                 </ng-container>
             </div>
-            
+            <button (click)="onBackClick()" type="button" class="btn btn-primary">Back</button>
             <button [disabled]="!personForm.valid" type="submit" class="btn btn-primary mr-2">
                 <span *ngIf="isAddMode">Add</span>
                 <span *ngIf="!isAddMode">Edit</span>
