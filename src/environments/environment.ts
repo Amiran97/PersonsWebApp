@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  accountApiUrl: 'http://amiran97-001-site1.etempurl.com/account',
-  personsApiUrl: 'http://amiran97-001-site1.etempurl.com/persons'
+  accountApiUrl: 'http://amiran97-001-site1.etempurl.com/api/v1/Account',
+  personsApiUrl: 'http://amiran97-001-site1.etempurl.com/api/v1/Persons'
 };
 
 /*

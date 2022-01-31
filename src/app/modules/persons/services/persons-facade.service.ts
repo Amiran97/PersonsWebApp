@@ -7,7 +7,7 @@ import { PersonsStorageService } from './persons-storage.service';
 @Injectable({
     providedIn: 'root'
   })
-export class PersonFacadeService {
+export class PersonsFacadeService {
     constructor(
         private personsApi: PersonsApiService,
         private personsStorage: PersonsStorageService) { 
@@ -16,6 +16,10 @@ export class PersonFacadeService {
     
       get persons$() {
         return this.personsStorage.persons$;
+      }
+
+      gerById(id: string) : Observable<Person> {
+        return this.personsApi.getById(id);
       }
     
       create(person: Person) : Observable<Person> {

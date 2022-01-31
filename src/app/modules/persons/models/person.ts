@@ -2,7 +2,7 @@ export interface Person {
     id: string,
     firstName: string,
     lastName: string,
-    phone: string,
+    phoneNumber: string,
     email: string,
     birthday: string,
     modifyDate: string

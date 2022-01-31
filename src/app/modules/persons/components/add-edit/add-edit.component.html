@@ -1,1 +1,56 @@
-<p>add-edit works!</p>
+<h1 *ngIf="isAddMode">New person</h1>
+<h1 *ngIf="!isAddMode">Edit person</h1>
+
+<div class="row my-4">
+    <div class="col-md-6">
+        <form [formGroup]="personForm" (ngSubmit)="onSubmit()">
+
+            <div class="form-group">
+                <input placeholder="First Name" formControlName="firstName" id="firstName" type="text" class="form-control">
+                <ng-container *ngIf="firstName?.touched">
+                    <span *ngIf="firstName?.errors?.['required']" class="text-danger">First Name is required!</span>
+                    <span *ngIf="firstName?.errors?.['maxlength']" class="text-danger">First Name length can't be more than 60 symbols!</span>
+                </ng-container>
+            </div>
+
+            <div class="form-group">
+                <input placeholder="Last Name" formControlName="lastName" id="lastName" type="text" class="form-control">
+                <ng-container *ngIf="lastName?.touched">
+                    <span *ngIf="lastName?.errors?.['required']" class="text-danger">Last Name is required!</span>
+                    <span *ngIf="lastName?.errors?.['maxlength']" class="text-danger">Last Name length can't be more than 60 symbols!</span>
+                </ng-container>
+            </div>
+
+            <div class="form-group">
+                <input placeholder="Phone number" formControlName="phoneNumber" id="phoneNumber" type="tel" class="form-control" (keypress)="onPhoneKeyPress($event)">
+                <ng-container *ngIf="phoneNumber?.touched">
+                    <span *ngIf="phoneNumber?.errors?.['required']" class="text-danger">Phone number is required!</span>
+                    <span *ngIf="phoneNumber?.errors?.['maxlength']" class="text-danger">Phone number length cant be more than 10 numbers!</span>
+                    <span *ngIf="phoneNumber?.errors?.['pattern']" class="text-danger">Phone number is not in a correct format!</span>
+                </ng-container>
+            </div>
+
+            <div class="form-group">
+                <input placeholder="Email" formControlName="email" id="email" type="email" class="form-control">
+                <ng-container *ngIf="email?.touched">
+                    <span *ngIf="email?.errors?.['required']" class="text-danger">Email is required!</span>
+                    <span *ngIf="email?.errors?.['maxlength']" class="text-danger">Email length cant be more than 100 symbols!</span>
+                    <span *ngIf="email?.errors?.['email']" class="text-danger">Email is not in a correct format!</span>
+                </ng-container>
+            </div>
+
+            <div class="form-group">
+                <label for="birthday">Birthday</label>
+                <input placeholder="Birthday" formControlName="birthday" id="birthday" type="date" class="form-control">
+                <ng-container *ngIf="birthday?.touched">
+                    <span *ngIf="birthday?.errors?.['required']" class="text-danger">Birthday is required!</span>
+                </ng-container>
+            </div>
+            
+            <button [disabled]="!personForm.valid" type="submit" class="btn btn-primary mr-2">
+                <span *ngIf="isAddMode">Add</span>
+                <span *ngIf="!isAddMode">Edit</span>
+            </button>
+        </form>
+    </div>
+</div>

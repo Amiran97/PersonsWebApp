@@ -18,6 +18,10 @@ export class PersonsApiService {
     return this.httpClient.get<Array<Person>>(this.url);      
   }
 
+  getById(id: string): Observable<Person> {
+    return this.httpClient.get<Person>(`${this.url}/${id}`);      
+  }
+
   create(person: Person): Observable<Person> {
     return this.httpClient.post<Person>(this.url, person);      
   }

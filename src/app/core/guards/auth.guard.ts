@@ -12,12 +12,10 @@ export class AuthGuard implements CanActivate {
   constructor(private accountFacade: AccountFacadeService, private router: Router) {}
 
   canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    if(this.accountFacade.isAuthenticated())
-    {
+    if(this.accountFacade.isAuthenticated()) {
         return true;
     }
-    else
-    {
+    else {
         this.router.navigate(['/account/login']);
         return false;
     }
