@@ -5,6 +5,7 @@ import { AddEditComponent } from './components/add-edit/add-edit.component';
 import { PersonsRoutingModule } from './persons-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { ToastrModule } from 'ngx-toastr';
 
 
 
