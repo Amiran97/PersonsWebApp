@@ -1,0 +1,12 @@
+@import "variables";
+
+ul li:hover {
+    background-color: $dark_main_color;
+    border-radius: 3px;
+}
+
+.text-username {
+    color: white;
+    border-radius: 3px;
+    border: 1px solid $dark_main_color;
+}

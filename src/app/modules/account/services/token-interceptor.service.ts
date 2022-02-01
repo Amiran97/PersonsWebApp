@@ -26,7 +26,7 @@ export class TokenInterceptorService implements HttpInterceptor {
         if (error.status == 404) {
           this.toastr.error("Not founded person!");
           this.router.navigate(['/persons']);
-          return this.handleError(request, next);
+          return next.handle(requestWithToken);
        }
         else {
           this.toastr.error("Something wrong...")
@@ -50,5 +50,5 @@ export class TokenInterceptorService implements HttpInterceptor {
         let authRequest = this.addAccessToken(request);
         return next.handle(authRequest);      
       }));
-  } 
+  }
 }

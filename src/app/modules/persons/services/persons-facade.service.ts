@@ -34,7 +34,7 @@ export class PersonsFacadeService {
 
       update(id: string, person: Person) : Observable<Person> {
           return this.personsApi.update(id, person).pipe(
-              tap(() => this.personsStorage.update(id, person)));
+              tap(data => this.personsStorage.update(id, data)));
       }
 
       private clear() {

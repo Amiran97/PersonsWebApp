@@ -1,29 +1,30 @@
-<h1>Sign in</h1>
-
-<div class="row my-4">
-
-    <div class="col-md-6">
-        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-
-            <div class="form-group">
-                <input placeholder="Username" formControlName="username" id="username" type="text" class="form-control">
-                <ng-container *ngIf="username?.touched">
-                    <span *ngIf="username?.errors?.['required']" class="text-danger">Username is required!</span>
-                    <span *ngIf="username?.errors?.['maxlength']" class="text-danger">Username length cant be more than 100 symbols!</span>
-                </ng-container>
-            </div>
-
-            <div class="form-group">
-                <input placeholder="Password" formControlName="password" id="password" type="password" class="form-control">
-                <ng-container *ngIf="password?.touched">
-                    <span *ngIf="password?.errors?.['required']" class="text-danger">Password is required!</span>
-                </ng-container>
-            </div>
-
-            <span *ngIf="loginForm?.errors?.['auth']" class="text-danger">{{loginForm?.errors?.['auth']}}</span>
-            
-            <button [disabled]="loginForm.invalid" type="submit" class="btn btn-primary mr-2">Sign in</button>
-        </form>
-    </div>
-
+<div class="card p-4">
+    <h1 class="mb-4 m-auto">Sign in</h1>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">  
+        <div class="form-group mb-2">
+            <input placeholder="Username" formControlName="username" id="username" type="text" class="form-control">
+            <ng-container *ngIf="username?.touched">
+                <p *ngIf="username?.errors?.['required']" class="text-danger m-0">Username is required!</p>
+                <p *ngIf="username?.errors?.['maxlength']" class="text-danger m-0">Username length can't be more than 32 symbols!</p>
+                <p *ngIf="username?.errors?.['minlength']" class="text-danger m-0">Username length can be more than 6 symbols!</p>
+                <p *ngIf="username?.errors?.['pattern']" class="text-danger m-0">Username can be letters and numbers, but must start with a letter!</p>
+            </ng-container>
+        </div>  
+        <div class="form-group mb-2">
+            <input placeholder="Password" formControlName="password" id="password" type="password" class="form-control">
+            <ng-container *ngIf="password?.touched">
+                <p *ngIf="password?.errors?.['required']" class="text-danger m-0">Password is required!</p>
+                <p *ngIf="password?.errors?.['maxlength']" class="text-danger m-0">Password length can't be more than 32 symbols!</p>
+                <p *ngIf="password?.errors?.['minlength']" class="text-danger m-0">Password length can be more than 8 symbols!</p>
+                <p *ngIf="password?.errors?.['pattern']" class="text-danger m-0">Password must contain one capital letter, a small letter and a number</p>
+            </ng-container>
+        </div>  
+        <p *ngIf="loginForm?.errors?.['auth']" class="text-danger mb-2">{{loginForm?.errors?.['auth']}}</p>
+        <div class="d-flex justify-content-center">
+            <button [disabled]="loginForm.invalid" type="submit" class="btn btn-primary">Sign in</button>
+        </div>
+        <div class="d-flex justify-content-end fs-6 fw-light pt-4">
+            <a [routerLink]="['/account/register']" class="text-decoration-none text-secondary">Don't have an account? Sign Up</a>
+        </div>
+    </form>
 </div>

@@ -23,16 +23,35 @@ export class AddEditComponent implements OnInit {
   ) {
     this.personForm = new FormGroup({
       firstName: new FormControl(null, {
-        validators: [Validators.required, Validators.maxLength(60)]
+        validators: [
+          Validators.required, 
+          Validators.maxLength(60),
+          Validators.minLength(3),
+          Validators.pattern('^[a-zA-Z]{3,60}$')
+        ]
       }),
       lastName: new FormControl(null, {
-        validators: [Validators.required, Validators.maxLength(60)]
+        validators: [
+          Validators.required, 
+          Validators.maxLength(60),
+          Validators.minLength(3),
+          Validators.pattern('^[a-zA-Z]{3,60}$')
+        ]
       }),
       phoneNumber: new FormControl(null, {
-        validators: [Validators.pattern('^0[0-9]{9}$'), Validators.required, Validators.maxLength(10)]
+        validators: [
+          Validators.pattern('^0[0-9]{9}$'), 
+          Validators.required, 
+          Validators.maxLength(10),
+          Validators.minLength(10)]
       }),
       email: new FormControl(null, {
-        validators: [Validators.required, Validators.email, Validators.maxLength(100)]
+        validators: [
+          Validators.required, 
+          Validators.email, 
+          Validators.maxLength(100),
+          Validators.minLength(6)
+        ]
       }),
       birthday: new FormControl(null, {
         validators: [Validators.required]
