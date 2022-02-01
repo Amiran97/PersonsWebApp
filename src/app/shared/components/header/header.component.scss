@@ -1,0 +1,18 @@
+@import "variables";
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+
+.nav-max {
+    height: 58px;
+    max-height: 58px;
+    min-height: 58px;
+}
+
+ul li:hover {
+    background-color: $dark_main_color;
+    border-radius: 3px;
+}

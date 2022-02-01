@@ -1,0 +1,55 @@
+<div class="card p-4">
+    <h1 class="mb-4 m-auto">Sign up</h1>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">  
+
+        <div class="form-group mb-2">
+            <input placeholder="Username" formControlName="username" id="username" type="text" class="form-control">
+            <ng-container *ngIf="username?.touched">
+                <p *ngIf="username?.errors?.['required']" class="text-danger m-0">Username is required!</p>
+                <p *ngIf="username?.errors?.['maxlength']" class="text-danger m-0">Username length can't be more than 32 symbols!</p>
+                <p *ngIf="username?.errors?.['minlength']" class="text-danger m-0">Username length can be more than 6 symbols!</p>
+                <p *ngIf="username?.errors?.['pattern']" class="text-danger m-0">Username can be letters and numbers, but must start with a letter!</p>
+            </ng-container>
+        </div>
+
+        <div class="form-group mb-2">
+            <input placeholder="Email" formControlName="email" id="email" type="email" class="form-control">
+            <ng-container *ngIf="email?.touched">
+                <p *ngIf="email?.errors?.['required']" class="text-danger m-0">Email is required!</p>
+                <p *ngIf="email?.errors?.['email']" class="text-danger m-0">Email is not in a correct format!</p>
+                <p *ngIf="email?.errors?.['maxlength']" class="text-danger m-0">Email length can't be more than 100 symbols!</p>
+                <p *ngIf="email?.errors?.['minlength']" class="text-danger m-0">Email length can be more than 6 symbols!</p>
+            </ng-container>
+        </div>
+
+        <div class="form-group mb-2">
+            <input placeholder="Password" formControlName="password" id="password" type="password" class="form-control">
+            <ng-container *ngIf="password?.touched">
+                <p *ngIf="password?.errors?.['required']" class="text-danger m-0">Password is required!</p>
+                <p *ngIf="password?.errors?.['maxlength']" class="text-danger m-0">Password length can't be more than 32 symbols!</p>
+                <p *ngIf="password?.errors?.['minlength']" class="text-danger m-0">Password length can be more than 8 symbols!</p>
+                <p *ngIf="password?.errors?.['pattern']" class="text-danger m-0">Password must contain one capital letter, a small letter and a number</p>
+            </ng-container>
+        </div>
+
+        <div class="form-group mb-2">
+            <input placeholder="Confirm password" formControlName="passwordConfirmation" id="passwordConfirmation" type="password" class="form-control">
+            <ng-container *ngIf="passwordConfirmation?.touched">
+                <p *ngIf="passwordConfirmation?.errors?.['required']" class="text-danger m-0">Password is required!</p>
+                <p *ngIf="passwordConfirmation?.errors?.['maxlength']" class="text-danger m-0">Password length can't be more than 32 symbols!</p>
+                <p *ngIf="passwordConfirmation?.errors?.['minlength']" class="text-danger m-0">Password length can be more than 8 symbols!</p>
+                <p *ngIf="passwordConfirmation?.errors?.['pattern']" class="text-danger m-0">Password must contain one capital letter, a small letter and a number</p>
+                <p *ngIf="registerForm?.errors?.['sameValue']" class="text-danger m-0">Passwords not match!</p>
+            </ng-container>
+        </div>
+
+        <p *ngIf="registerForm?.errors?.['register']" class="text-danger m-0">{{registerForm?.errors?.['register']}}</p>
+
+        <div class="d-flex justify-content-center">
+            <button [disabled]="registerForm.invalid" type="submit" class="btn btn-primary">Sign up</button>
+        </div>
+        <div class="d-flex justify-content-end fs-6 fw-light pt-4">
+            <a [routerLink]="['/account/login']" class="text-decoration-none text-secondary">Have an account? Sign in</a>
+        </div>
+    </form>
+</div>

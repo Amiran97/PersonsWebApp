@@ -1,1 +1,90 @@
-/* You can add global styles to this file, and also import other style files */
+@import "variables";
+
+body {
+  max-width: 100vw;
+}
+
+main {
+  min-height: calc(100vh - 50px - 58px)
+}
+
+.cur-pointer {
+    cursor: pointer;
+}
+
+.btn-primary {
+  background-color: $main-color !important;
+  border-color: $main-color !important;
+}
+
+.btn-primary:hover {
+  background-color: $dark-main-color !important;
+  border-color: $dark-main-color !important;
+}
+
+#toast-container > div {
+  opacity: 1;
+}
+
+.toast {
+  font-size: initial !important;
+  border: initial !important;
+  backdrop-filter: blur(0) !important;
+  
+}
+.toast-success {
+  background-color: #51A351 !important;
+  border-radius: 3px !important;
+}
+
+.toast-error {
+  background-color: #BD362F !important;
+  border-radius: 3px !important;
+}
+
+.toast-info {
+  background-color: #2F96B4 !important;
+  border-radius: 3px !important;
+}
+
+.toast-warning {
+  background-color: #F89406 !important;
+  border-radius: 3px !important;
+}
+.toast-message {
+  padding: 10px 20px 10px 20px !important;
+  color: white;
+}
+
+.toast-top-rigth {
+  top: 100px;
+  right: 100px;
+  width: 100%;
+  position: fixed;
+}
+
+.ng-touched.ng-invalid:not(form) {
+  border-left: 4px solid red;
+  border-right: 1px solid red;
+  border-top: 1px solid red;
+  border-bottom: 1px solid red;
+  background-color: rgb(255, 250, 250);
+  border-radius: 3px;
+  color: red;
+}
+
+.ng-touched.ng-invalid:not(form)::placeholder {
+  color: red;
+}
+
+.bg-main { 
+  background-color: $main-color;
+}
+
+.bg-dark-main { 
+  background-color: $dark-main-color;
+}
+
+.bg-smoke {
+  background-color: whitesmoke;
+}
