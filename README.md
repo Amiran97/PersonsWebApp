@@ -1,27 +1,32 @@
-# PersonsApp
+# PersonList
 
+The project is a test task for Asferro!
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.2.
+In project I used persanaly my Api: `http://amiran97-001-site1.etempurl.com/api/v1`
+Api have a swagger interface [click here](http://amiran97-001-site1.etempurl.com).
 
-## Development server
+## Getting started with Angular 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+To work with `Angular`, you need to install the `Node.js` server and the `npm` package manager if they are not on the working machine. At the same time, no special knowledge is required to work with NodeJS and npm. You can use the [node.js installer to install](https://nodejs.org/en/). It will also install npm along with the server.
 
-## Code scaffolding
+## Installing the Angular CLI
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+To compile the application, we will use the Angular CLI framework. Angular CLI makes it easy to create an application and compile it. Angular CLI is distributed as an npm package, so you must first install it in order to use it. To install the Angular CLI, open the console/command line and run the following command in it: `npm install -g @angular/cli`
 
-## Build
+## Download or clone a project
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Use the console/command line or IDE to clone the repository. You can also download the ZIP archive of the project from GitHub.
 
-## Running unit tests
+## Installing packages. package.json
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Open a console/command line and go to the project folder in it using the cd command. And then run the `npm install` command, which will install all the necessary modules.
 
-## Running end-to-end tests
+## Launch of the project
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+And now that everything is ready, we can start the project. To do this, in the command line (terminal), run the command `ng serve`
 
-## Further help
+After the command line (terminal) reports that it has collected and launched the project, go to `http://localhost:4200/`
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Feedback
+
+I accept questions by email `todua.amiran@gmail.com`!
