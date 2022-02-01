@@ -1,6 +1,6 @@
+import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
 import { AccountFacadeService } from 'src/app/modules/account/services/account-facade.service';
 import { Person } from '../../models/person';
 import { PersonsFacadeService } from '../../services/persons-facade.service';
@@ -16,6 +16,12 @@ export class ListComponent implements OnInit {
   personToDelete?: string;
   page: number = 1;
   isLoading: boolean = true;
+  firstNameAsc: boolean = true;
+  lastNameAsc: boolean = true;
+  phoneNumberAsc: boolean = true;
+  emailAsc: boolean = true;
+  birthdayAsc: boolean = true;
+  modifyDateAsc: boolean = true;
 
   constructor(
     public personsFacade: PersonsFacadeService,
@@ -59,5 +65,20 @@ export class ListComponent implements OnInit {
   handlePageSizeChange(event: any): void {
     this.page = 1;
     this.retrievePersons();
+  }
+
+  onHeadClick(fieldName: string)
+  {
+    if(fieldName == 'modifyDate') {
+      this.personCollection.sort((a : any, b : any) => 
+        (formatDate(a[fieldName], 'yyyy.MM.dd hh:mm:ss', 'en') > formatDate(b[fieldName], 'yyyy.MM.dd hh:mm:ss', 'en')) ? -1 : 1);
+    }
+    if((this as any)[fieldName + 'Asc']) {
+      this.personCollection.sort((a : any, b : any)=> (a[fieldName] > b[fieldName]) ? -1 : 1);
+    }
+    else {
+      this.personCollection.sort((a : any, b : any)=> (a[fieldName] < b[fieldName]) ? -1 : 1);
+    }
+    (this as any)[fieldName + 'Asc'] = !(this as any)[fieldName + 'Asc'];
   }
 }
